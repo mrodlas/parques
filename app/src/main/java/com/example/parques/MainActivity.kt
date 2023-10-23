@@ -9,9 +9,10 @@ import com.example.parques.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        //setContentView(R.layout.activity_main)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val miDialogo = MiDialogFragment()
 
         binding.bGuardar.setOnClickListener{
             Log.d("Nombre", binding.nombre.text.toString())
@@ -25,6 +26,8 @@ class MainActivity : AppCompatActivity() {
             if(binding.cBParque.isChecked) Log.d("Parque Infantil", binding.cBParque.text.toString())
             if(binding.cBRestaurante.isChecked) Log.d("Restaurante", binding.cBRestaurante.text.toString())
             if(binding.cBMascotas.isChecked) Log.d("Zona de mascotas", binding.cBMascotas.text.toString())
+
+            miDialogo.show(supportFragmentManager, "MiDialogo")
 
         }
     }
